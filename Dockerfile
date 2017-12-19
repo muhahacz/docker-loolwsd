@@ -7,7 +7,7 @@ RUN apk update && \
 RUN apk update && apk add libcap-dev && \
     cd /tmp/po && \
     cmake -DENABLE_DATA_MYSQL=OFF -DENABLE_DATA_ODBC=OFF -DENABLE_MONGODB=OFF -DENABLE_ZIP=OFF -DENABLE_PAGECOMPILER=OFF -DENABLE_PAGECOMPILER_FILE2PAGE=OFF && \
-    make -j4 && make install
+    make -j $(getconf _NPROCESSORS_ONLN) && make install
 
 RUN apk update && apk add --no-cache alpine-sdk autoconf automake libtool
 
