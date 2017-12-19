@@ -1,0 +1,11 @@
+--- IoUtil.cpp	2017-12-15 08:14:14.000000000 +0100
++++ IoUtil-new.cpp	2017-12-18 10:04:59.569778068 +0100
+@@ -11,7 +11,7 @@
+ 
+ #include "IoUtil.hpp"
+ 
+-#include <sys/poll.h>
++#include <poll.h>
+ 
+ #include <cassert>
+ #include <cstdlib>
