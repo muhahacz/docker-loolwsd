@@ -47,6 +47,6 @@ RUN set -xe && \
     autoreconf && \
     autoheader && \ 
 #    ./configure --with-poco-includes=/tmp/mypoco/ --with-poco-libs=/tmp/poco/lib/  && \
-    ./configure --enable-silent-rules --enable-debug && \
+    ./configure --enable-silent-rules --enable-debug --with-lo-path=/usr/lib/libreoffice/ --with-lokit-path=/usr/include/LibreOfficeKit && \
     make 
 
