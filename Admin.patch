@@ -1,0 +1,11 @@
+--- Admin.cpp	2017-12-15 08:14:14.000000000 +0100
++++ Admin-new.cpp	2017-12-18 09:55:05.493780334 +0100
+@@ -11,7 +11,7 @@
+ 
+ #include <cassert>
+ #include <mutex>
+-#include <sys/poll.h>
++#include <poll.h>
+ 
+ #include <Poco/Net/HTTPCookie.h>
+ #include <Poco/Net/HTTPRequest.h>
