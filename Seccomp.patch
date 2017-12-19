@@ -1,0 +1,22 @@
+--- Seccomp.cpp	2017-12-19 13:09:35.098027979 +0100
++++ Seccomp-new.cpp	2017-12-19 13:10:38.298027738 +0100
+@@ -68,8 +68,9 @@
+     Log::signalLog(" seccomp trapped signal, un-authorized sys-call: ");
+     Log::signalLogNumber(syscall);
+     Log::signalLog("\n");
+-
++#ifdef HAVE_BACKTRACE_SYMBOLS 
+     SigUtil::dumpBacktrace();
++#endif /* HAVE_BACKTRACE_SYMBOLS */
+ 
+     _exit(1);
+ }
+@@ -211,7 +212,7 @@
+ 
+     sigemptyset(&action.sa_mask);
+     action.sa_flags = SA_SIGINFO;
+-    action.sa_handler = reinterpret_cast<__sighandler_t>(handleSysSignal);
++    action.sa_handler = reinterpret_cast<void(*)(int)>(handleSysSignal);
+ 
+     sigaction(SIGSYS, &action, nullptr);
+ 
